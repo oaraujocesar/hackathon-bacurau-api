@@ -8,6 +8,8 @@ export default class UsersSchema extends BaseSchema {
       table.uuid('id').primary()
       table.string('name', 255).notNullable()
       table.string('email', 255).notNullable()
+      table.string('avatar', 255)
+      table.string('bio', 255)
       table.string('password', 180).notNullable()
       table.string('remember_me_token').nullable()
       table.timestamps(true)

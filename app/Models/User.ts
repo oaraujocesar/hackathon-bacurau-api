@@ -19,6 +19,12 @@ export default class User extends BaseModel {
   public name: string
 
   @column()
+  public bio: string
+
+  @column()
+  public avatar: string
+
+  @column()
   public password: string
 
   @column()
@@ -40,5 +46,12 @@ export default class User extends BaseModel {
   @beforeCreate()
   public static createId (user: User) {
     user.id = uuid4()
+  }
+
+  @beforeSave()
+  public static setAvatar (user: User) {
+    const avatar = user.name.replace(' ', '')
+
+    user.avatar = `https://api.adorable.io/avatars/285/${avatar}.png`
   }
 }
