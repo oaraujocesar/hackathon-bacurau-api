@@ -24,3 +24,8 @@ Route.group(() => {
   Route.post('/signin', 'AuthController.login')
   Route.post('/signon', 'AuthController.store')
 }).prefix('v1/client/auth')
+
+Route.group(() => {
+  Route.get('/show/:id', 'UsersController.show')
+  Route.patch('/update/:id', 'UsersController.update')
+}).prefix('v1/client/profile').middleware('auth')
