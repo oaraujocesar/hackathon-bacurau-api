@@ -13,7 +13,7 @@ class Goal extends Model {
     })
   }
 
-  user() {
+  users() {
     this.belongsTo('App/Models/User')
   }
 }

@@ -9,6 +9,14 @@ class GoalController {
     return response.status(status).send(data)
   }
 
+  async show({ params, response }) {
+    const id = params.id
+
+    const { status, data } = await presenter.Show(id)
+
+    return response.status(status).send(data)
+  }
+
   async store({ request, response, auth }) {
     const user = await auth.getUser()
     const id = user.$attributes.id

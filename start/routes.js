@@ -29,6 +29,8 @@ Route.group(() => {
 Route.group(() => {
   Route.post('new', 'GoalController.store')
   Route.get('show/:id', 'GoalController.show')
+  Route.put('show/:id', 'GoalController.update')
+  Route.delete('show/:id', 'GoalController.delete')
   Route.get('show/tags', 'GoalController.search')
   Route.get('/', 'GoalController.index')
 }).prefix('v1/client/goals').middleware('auth')
