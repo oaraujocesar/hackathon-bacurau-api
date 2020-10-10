@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "node ace build",
+    "start": "node ace build",
     "dev": "node ace serve --watch",
     "lint": "eslint . --ext=.ts"
   },
