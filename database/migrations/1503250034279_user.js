@@ -8,6 +8,7 @@ class UserSchema extends Schema {
     this.create('users', (table) => {
       table.uuid('id').primary()
       table.string('name', 80).notNullable()
+      table.string('last', 80).notNullable()
       table.string('avatar', 254)
       table.string('bio', 254)
       table.string('email', 254).notNullable().unique()

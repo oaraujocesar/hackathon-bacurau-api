@@ -5,7 +5,7 @@ const presenter = use('App/Mediators/Auth')
 class AuthController {
   async store ({ request, response }) {
     const { status, data } = await presenter
-      .Store(request.only(['name', 'email', 'password']))
+      .Store(request.only(['name', 'last', 'email', 'password']))
 
     return response.status(status).send(data)
   }
