@@ -23,8 +23,9 @@ class User extends Model {
 
     this.addHook('beforeSave', async (userInstance) => {
       if (userInstance.name) {
-        const name = userInstance.name.replace(' ', '')
-        userInstance.avatar = `https://api.adorable.io/avatars/285/${name}.png`
+        const name = userInstance.name
+        const last = userInstance.last
+        userInstance.avatar = `https://api.adorable.io/avatars/285/${name}-${last}.png`
       }
     })
 
