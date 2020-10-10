@@ -24,4 +24,11 @@ Route.group(() => {
 Route.group(() => {
   Route.get('show/:id', 'UserController.show')
   Route.patch('update/:id', 'UserController.update')
-}).prefix('v1/client/profile')
+}).prefix('v1/client/profile').middleware('auth')
+
+Route.group(() => {
+  Route.post('new', 'GoalController.store')
+  Route.get('show/:id', 'GoalController.show')
+  Route.get('show/tags', 'GoalController.search')
+  Route.get('/', 'GoalController.index')
+}).prefix('v1/client/goals').middleware('auth')
