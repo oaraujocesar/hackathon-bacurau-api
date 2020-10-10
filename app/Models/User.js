@@ -1,4 +1,5 @@
 'use strict'
+const { v4: uuidv4 } = require('uuid');
 
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
@@ -19,6 +20,21 @@ class User extends Model {
         userInstance.password = await Hash.make(userInstance.password)
       }
     })
+
+    this.addHook('beforeSave', async (userInstance) => {
+      if (userInstance.name) {
+        const name = userInstance.name.replace(' ', '')
+        userInstance.avatar = `https://api.adorable.io/avatars/285/${name}.png`
+      }
+    })
+
+    this.addHook('beforeCreate', async (userInstance) => {
+      userInstance.id = uuidv4()
+    })
+  }
+
+  static get hidden () {
+    return ['password']
   }
 
   /**
