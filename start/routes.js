@@ -24,5 +24,4 @@ Route.group(() => {
 Route.group(() => {
   Route.get('show/:id', 'UserController.show')
   Route.patch('update/:id', 'UserController.update')
-  Route.patch('avatar/update/:id', 'AvatarController.update')
 }).prefix('v1/client/profile')
