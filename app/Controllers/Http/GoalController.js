@@ -27,8 +27,7 @@ class GoalController {
 
   async search({ request, response }) {
     const { area, tags } = request.get()
-    console.log(tags)
-    // const { status, data } = await presenter.Search(area, tags)
+    const { status, data } = await presenter.Search(area, tags)
 
     return response.status(status).send(data)
   }

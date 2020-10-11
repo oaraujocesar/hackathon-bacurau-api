@@ -8,8 +8,8 @@ class Goal extends Model {
   static boot() {
     super.boot()
 
-    this.addHook('beforeCreate', async (userInstance) => {
-      userInstance.id = uuidv4()
+    this.addHook('beforeCreate', async (goalInstance) => {
+      goalInstance.id = uuidv4()
     })
   }
 
@@ -19,6 +19,14 @@ class Goal extends Model {
 
   users() {
     this.belongsTo('App/Models/User')
+  }
+
+  tasks() {
+    this.belongsTo('App/Models/Task')
+  }
+
+  comments() {
+    this.hasMany('App/Models/Comment')
   }
 }
 

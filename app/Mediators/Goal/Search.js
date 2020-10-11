@@ -1,15 +1,17 @@
 const Goal = use('App/Models/Goal')
 
-module.exports = async (user_id, area) => {
-  console.log(user_id, area)
+module.exports = async (area, tag) => {
   try{
     const goals = await Goal
       .query()
-      .where('user_id', user_id)
       .where('area', area)
       .fetch()
 
-    return { status: 200, data: goals }
+      const json = goals.toJSON()
+
+      const res = json.filter(item => item.tags.includes(tag))
+
+    return { status: 200, data: res }
   } catch (err) {
     return { status: 204, data: err }
   }
