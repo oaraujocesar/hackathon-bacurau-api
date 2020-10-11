@@ -10,6 +10,7 @@ class GoalsSchema extends Schema {
       table.uuid('user_id').unsigned().references('id').inTable('users')
       table.string('title').notNullable()
       table.string('description').notNullable()
+      table.string('area').notNullable()
       table.boolean('public').defaultTo(false)
       table.specificType('tags', 'text ARRAY').notNullable()
       table.timestamps()

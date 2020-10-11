@@ -13,6 +13,10 @@ class Goal extends Model {
     })
   }
 
+  static get hidden () {
+    return ['password']
+  }
+
   users() {
     this.belongsTo('App/Models/User')
   }
