@@ -1,13 +1,8 @@
-const Goal = use('App/Models/Goal')
+const Database = use('Database')
 
 module.exports = async (area) => {
   try{
-    const goals = await Goal
-      .query()
-      .where('area', area)
-      .where('public', true)
-      .innerJoin('users', 'users.id', 'goals.user_id')
-      .fetch()
+    const goals = await Database.from('users').innerJoin('goals', 'goals.user_id', 'users.id')
 
     return { status: 200, data: goals }
   } catch (err) {

@@ -55,6 +55,10 @@ class User extends Model {
   goals() {
     return this.hasMany('App/Models/Goal')
   }
+
+  comments() {
+    return this.hasMany('App/Models/Comment')
+  }
 }
 
 module.exports = User
