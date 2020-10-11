@@ -21,6 +21,10 @@ class Goal extends Model {
     this.belongsTo('App/Models/User')
   }
 
+  tasks() {
+    this.belongsTo('App/Models/Task')
+  }
+
   comments() {
     this.hasMany('App/Models/Comment')
   }

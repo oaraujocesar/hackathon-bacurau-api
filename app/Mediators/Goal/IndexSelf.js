@@ -1,6 +1,7 @@
 const Goal = use('App/Models/Goal')
 
 module.exports = async (user_id, area) => {
+  console.log(user_id, area)
   try{
     const goals = await Goal
       .query()
@@ -12,5 +13,4 @@ module.exports = async (user_id, area) => {
   } catch (err) {
     return { status: 204, data: err }
   }
-
 }

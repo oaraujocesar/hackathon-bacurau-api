@@ -1,18 +1,18 @@
 const Goal = use('App/Models/Goal')
 
-module.exports = async (area, tags) => {
+module.exports = async (area, tag) => {
   try{
-    // const goals = await Goal
-    //   .query()
-    //   .where('area', area)
-    //   .where('public', true)
-    //   .where('tag', )
-    //   .innerJoin('users', 'users.id', 'goals.user_id')
-    //   .fetch()
+    const goals = await Goal
+      .query()
+      .where('area', area)
+      .fetch()
 
-    return { status: 200, data: goals }
+      const json = goals.toJSON()
+
+      const res = json.filter(item => item.tags.includes(tag))
+
+    return { status: 200, data: res }
   } catch (err) {
     return { status: 204, data: err }
   }
-
 }
