@@ -1,6 +1,6 @@
 const Goal = use('App/Models/Goal')
 
-module.exports = async ({ title, description, tags, public }, id) => {
+module.exports = async ({ title, description, tags, public, area }, id) => {
   const tagsFiltered = tags.replace(/[|#&;$%@"<> ()+]/g, "").split(',')
 
   const goal = await Goal.create({
@@ -8,6 +8,7 @@ module.exports = async ({ title, description, tags, public }, id) => {
     description,
     tags: tagsFiltered,
     public,
+    area,
     user_id: id
   })
 
