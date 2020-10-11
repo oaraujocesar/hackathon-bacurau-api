@@ -37,10 +37,6 @@ Route.group(() => {
 }).prefix('v1/client/goals').middleware('auth')
 
 Route.group(() => {
-
-}).prefix('v1/client/goals').middleware('auth')
-
-Route.group(() => {
   Route.get('/', 'CommentController.index')
   Route.post('/new', 'CommentController.store')
   Route.patch('/:id', 'CommentController.update')
@@ -48,8 +44,8 @@ Route.group(() => {
 }).prefix('v1/client/comments').middleware('auth')
 
 Route.group(() => {
-  Route.get('/', 'TaskController.index')
   Route.post('/new', 'TaskController.store')
-  // Route.patch('/:id', 'TaskController.update')
-  // Route.delete('/:id', 'TaskController.delete')
+  Route.patch('/:id', 'TaskController.update')
+  Route.delete('/:id', 'TaskController.delete')
+  Route.get('/', 'TaskController.index')
 }).prefix('v1/client/tasks').middleware('auth')

@@ -56,6 +56,10 @@ class User extends Model {
     return this.hasMany('App/Models/Goal')
   }
 
+  tasks() {
+    return this.hasMany('App/Models/Task')
+  }
+
   comments() {
     return this.hasMany('App/Models/Comment')
   }
